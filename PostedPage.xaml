@@ -1,0 +1,122 @@
+﻿<Window x:Class="FoundIT_Desktop_App.PostedPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoundIT_Desktop_App"
+        mc:Ignorable="d"
+        Title="PostedPage" Height="750" Width="900">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="339*"/>
+            <RowDefinition Height="11*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.RowSpan="2">
+
+            <StackPanel Background="White">
+
+                <StackPanel Orientation="Horizontal"
+                            Background="Black" 
+                            Height="110" 
+                            RenderTransformOrigin="0.564,0.527">
+
+                    <Image Source="/Images/founditlogo.png" 
+                           Width="80" Height="80" 
+                           Margin=" 75 0 0 0" />
+
+                    <Label FontSize="30" Foreground="#c67676" 
+                           Content="FoundIT" Width="140" Height="50"
+                           Margin="-10 0 0 0"/>
+
+
+                    <Button Content="Home"
+                            BorderThickness="0"
+                            BorderBrush="Transparent"
+                            Background="Transparent"
+                            Foreground="White"
+                            FontSize="16"
+                            Height="38" Width="100"
+                            Margin="-10 0 0 0"/>
+
+                    <Button Content="Founder Form"
+                            BorderThickness="0"
+                            BorderBrush="Transparent"
+                            Background="Transparent"
+                            Foreground="White"
+                            FontSize="16"
+                            Height="38" Width="105"
+                            Margin="20 0 0 0" Click="BtnClick_Form"/>
+
+                    <Button Background="Transparent"
+                            BorderThickness="0"
+                            Width="81"
+                            Margin="110 0 0 0" Height="80" Click="BtnClick_Profile">
+                            <Image Source="/Images/profile.png" 
+                            Width="70" Height="80" 
+                            Margin="0 0 0 0" RenderTransformOrigin="0.5,0.741" />
+                    </Button>
+
+                    <Button Style="{DynamicResource LogoutSyle}" Content="Log Out"
+                            BorderThickness="0"
+                            BorderBrush="Transparent"
+                            Background="#425c5a"
+                            Foreground="White"
+                            FontSize="16"
+                            Height="38" Width="105"
+                            Margin="10 0 0 0" Click="Button_Click_2"/>
+
+                </StackPanel>
+
+                <StackPanel Height="590">
+
+                    <DockPanel Margin="0 20 0 0" >
+                        <Label DockPanel.Dock="Top" 
+                       FontSize="30" Foreground="Black" 
+                       Content="POSTED ITEMS" 
+                       Width="220" Height="50"
+                       FontWeight="Bold"
+                       Margin="-15 0 0 0"/>
+
+                    </DockPanel>
+
+                    <DataGrid x:Name="datagrid1" Width="730"
+                              ScrollViewer.CanContentScroll="False"
+                              HorizontalScrollBarVisibility="Disabled" CellEditEnding="datagrid1_CellEditEnding" 
+                              >
+                        <DataGrid.Columns>
+                        <DataGridTextColumn Width="180" Header="Item Name" Binding="{Binding itemName}"/>
+                        <DataGridTextColumn Width="200" Header="Item Category" Binding="{Binding itemCategory}"/>
+                        <DataGridTextColumn  Width="180" Header="Location Found" Binding="{Binding itemLocationFound}"/>
+                        <DataGridTextColumn Width="100" Header="Time Last Seen" Binding="{Binding timeLastSeen}"/>
+                            <DataGridTemplateColumn Width="80">
+                                <DataGridTemplateColumn.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock
+                                                Text="Action"
+                                            />
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.HeaderTemplate>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Button x:Name="ClaimBtn" Content="Claim" Click="deletebtn_click" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+
+
+                    </DataGrid>
+                    <Button x:Name="loadbtn" Content="Load Table" 
+                            Height="28" 
+                            Width="96"
+                            Margin="0 400 0 0" Click="loadbtn_Click"/>
+
+
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,394 @@
+﻿<Window x:Class="FoundIT_Desktop_App.FounderForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoundIT_Desktop_App"
+        mc:Ignorable="d"
+        Title="FounderForm" Height="870" Width="900">
+    <Grid>
+        <StackPanel >
+
+            <StackPanel Orientation="Horizontal"
+                            Background="Black" 
+                            Height="110" 
+                            RenderTransformOrigin="0.564,0.527">
+
+                <Image Source="/Images/founditlogo.png" 
+                           Width="80" Height="80" 
+                           Margin=" 75 0 0 0" />
+                <Label FontSize="30" Foreground="#c67676" 
+                           Content="FoundIT" Width="140" Height="50"
+                           Margin="-10 0 0 0"/>
+
+                <Button Content="Home"
+                            BorderThickness="0"
+                            BorderBrush="Transparent"
+                            Background="Transparent"
+                            Foreground="White"
+                            FontSize="16"
+                            Height="38" Width="100"
+                            Margin="-10 0 0 0" Click="BtnClick_Home"/>
+
+                <Button Content="Founder Form"
+                            BorderThickness="0"
+                            BorderBrush="Transparent"
+                            Background="Transparent"
+                            Foreground="White"
+                            FontSize="16"
+                            Height="38" Width="105"
+                            Margin="20 0 0 0"/>
+
+                <Button Background="Transparent"
+                            BorderThickness="0"
+                            Width="81"
+                            Margin="110 0 0 0" Height="80" Click="BtnClick_Profile">
+                    <Image Source="/Images/profile.png" 
+                            Width="70" Height="80" 
+                            Margin="0 0 0 0" />
+                </Button>
+
+                <Button Style="{DynamicResource LogoutSyle}" Content="Log Out"
+                            BorderThickness="0"
+                            BorderBrush="Transparent"
+                            Background="#425c5a"
+                            Foreground="White"
+                            FontSize="16"
+                            Height="38" Width="105"
+                            Margin="10 0 0 0"/>
+            </StackPanel>
+
+            <StackPanel Height="76"
+                            Orientation="Horizontal"
+                            RenderTransformOrigin="0.564,0.527">
+
+                <Image Source="/Images/grayinstructionlogo.png" 
+                           Width="52" Height="36" 
+                           Margin=" 125 10 -27 0"
+                           />
+
+                <TextBox Margin="40 10 0 0"
+                         Foreground="LightSlateGray"
+                         FontFamily="Arial Bold"
+                         FontSize="14"
+                         FontStretch="UltraExpanded"
+                         BorderBrush="Transparent"
+                         
+                x:Name="Instructions"
+                TextWrapping="Wrap"
+                AcceptsReturn="True"
+                VerticalScrollBarVisibility="Hidden" Width="596"
+                Text="The Founder Form lets you fill in details about the item that you found. Information provided below will be used to identify the rightful owner of the item. After filling up this form, make sure to save the receipt that will be provided and then drop-off the item at your chosen repository." Height="70" IsEnabled="False"
+                />
+
+            </StackPanel>
+
+            <StackPanel Height="90"
+                            Orientation="Vertical"
+                            RenderTransformOrigin="0.564,0.527">
+
+                <Label Content="Name"
+                        BorderThickness="0"
+                            BorderBrush="Transparent"
+                            Background="Transparent"
+                            Foreground="Black"
+                            FontWeight="Bold"
+                            FontSize="16"
+                            Height="30" Width="114"
+                            Margin="0 0 497 0"
+                            />
+
+                <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="30 7 0 0 " 
+                        CornerRadius="5" Width="635" >
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="40" />
+                            <ColumnDefinition Width="133"/>
+                            <ColumnDefinition Width="439"/>
+                            <ColumnDefinition Width="7"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="name" MouseDown="nameBox_MouseDown" Text="Founder Name" 
+                               Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="4" 
+                               Margin="10,0,0,0" />
+                        <TextBox x:Name="nameBox" TextChanged="nameBox_TextChanged"
+                               Style="{StaticResource textBox}" 
+                               Grid.Column="1" Grid.ColumnSpan="4" Margin="10,0,0,0" />
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <StackPanel Height="77"
+                            Orientation="Horizontal"
+                            RenderTransformOrigin="0.564,0.527">
+
+                <Grid Margin="7 9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="43*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="1" FontSize="16" Foreground="Black" 
+                                        Content="Item Name" Width="100" Height="30"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        FontWeight="Bold" Grid.ColumnSpan="2" Margin="17,0,0,0"/>
+
+                    <Label Grid.Column="2" FontSize="16" Foreground="Black" 
+                                        Content="Item Category" Width="120" Height="30"
+                                        HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                        FontWeight="Bold" Margin="371,0,0,0"/>
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="21,36,190,-14" CornerRadius="5" Height="37" Grid.Column="2" >
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="17*" />
+                                <ColumnDefinition Width="202*"/>
+                                <ColumnDefinition Width="42*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="ItemName" MouseDown="ItemName_MouseDown" Text="Item Name" Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="4" Margin="10,0,0,0" />
+                            <TextBox x:Name="ItemNameBox" TextChanged="ItemNameBox_TextChanged" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="4" Margin="10,0,0,0" />
+                        </Grid>
+                    </Border>
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="370,36,-165,-14" CornerRadius="5" Height="37" Grid.Column="2" >
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="22*" />
+                                <ColumnDefinition Width="311*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <ComboBox x:Name="categoryComboBox" IsEditable="True" Grid.Column="1" Margin="-4,-6,-4,-5" Grid.ColumnSpan="3">
+                                <ComboBoxItem Content="Accessories"/>
+                                <ComboBoxItem Content="Cash"/>
+                                <ComboBoxItem Content="Clothing"/>
+                                <ComboBoxItem Content="Electronic Devices"/>
+                                <ComboBoxItem Content="Personal Belongings"/>
+                                <ComboBoxItem Content="School Supplies"/>
+                            </ComboBox>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </StackPanel>
+
+
+            <StackPanel Height="102"
+                            Orientation="Horizontal"
+                            RenderTransformOrigin="0.511,0.714">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="43*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label FontSize="16" Foreground="Black" 
+                                        Content="Venue Last Seen" Width="132" Height="30"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        FontWeight="Bold" Grid.ColumnSpan="3" Margin="134,21,0,0"/>
+
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="138,51,-508,0" CornerRadius="5" Grid.ColumnSpan="3" Height="41" VerticalAlignment="Top" >
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="40*" />
+                                <ColumnDefinition Width="472*"/>
+                                <ColumnDefinition Width="101*"/>
+                                <ColumnDefinition Width="7*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Venue" MouseDown="Venue_MouseDown" Text="Venue Last Seen" Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="4" Margin="10,0,0,0" />
+                            <TextBox x:Name="VenueBox" TextChanged="VenueBox_TextChanged" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="4" Margin="10 0 0 0" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </StackPanel>
+
+
+            <StackPanel Height="90"
+                            Orientation="Horizontal"
+                            RenderTransformOrigin="0.564,0.527">
+                <Grid Margin="7 9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110" />
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="43*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="1" FontSize="16" Foreground="Black" 
+                                        Content="Date Last Seen" Width="122" Height="30"
+                                        HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                        FontWeight="Bold" Grid.ColumnSpan="2" Margin="18,0,0,0"/>
+
+                    <Label Grid.Column="2" FontSize="16" Foreground="Black" 
+                                        Content="Time Last Seen" Width="131" Height="30"
+                                        HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                        FontWeight="Bold" Margin="374,0,0,0"/>
+
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="21,30,201,-2" CornerRadius="5" Height="44" Grid.Column="2" >
+                        <Grid Margin="-1,-1,15,19">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="22*" />
+                                <ColumnDefinition Width="311*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <DatePicker x:Name="datePicker" Grid.ColumnSpan="4" Margin="4,5,-11,-14"  >
+                                <DatePicker.Style>
+                                    <Style TargetType="{x:Type DatePicker}">
+                                        <Setter Property="IsDropDownOpen" Value="False"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="IsDropDownOpen" Value="True"/>
+                                            </Trigger>
+                                            <Trigger Property="IsMouseOver" Value="False">
+                                                <Setter Property="IsDropDownOpen" Value="False"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DatePicker.Style>
+                            </DatePicker>
+                        </Grid>
+                    </Border>
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="374,30,-152,-2" CornerRadius="5" Height="44" Grid.Column="2" >
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="22*" />
+                                <ColumnDefinition Width="311*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="TimeLastSeen" MouseDown="TimeLastSeen_MouseDown" Text="HH:MM" Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="3" Margin="10,0,0,0" />
+                            <TextBox x:Name="TimeLastSeenBox" TextChanged="TimeLastSeenBox_TextChanged" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="3" Margin="10,0,0,0" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </StackPanel>
+
+
+            <StackPanel Height="108"
+                            Orientation="Horizontal"
+                            RenderTransformOrigin="0.564,0.527">
+
+                <Grid Margin="7 9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="35.222" />
+                        <ColumnDefinition Width="74.778"/>
+                        <ColumnDefinition Width="0*" />
+                        <ColumnDefinition Width="301*"/>
+                        <ColumnDefinition Width="216*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="2" FontSize="16" Foreground="Black" 
+                                        Content="Brand" Width="122" Height="30"
+                                        HorizontalAlignment="Left"
+                                        VerticalAlignment="Top"
+                                        FontWeight="Bold" Grid.ColumnSpan="2" Margin="20,0,0,0"/>
+
+                    <Label Grid.Column="4" FontSize="16" Foreground="Black" 
+                                        Content="Color" Width="187" Height="30"
+                                        HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                        FontWeight="Bold" Margin="178,0,0,0"/>
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="23,34,356,18" CornerRadius="5" Width="281" Height="38" Grid.Column="2" Grid.ColumnSpan="3" >
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="22*" />
+                                <ColumnDefinition Width="311*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Brand" MouseDown="Brand_MouseDown" Text="Item Brand" Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="3" Margin="10,0,0,0" />
+                            <TextBox x:Name="BrandBox" TextChanged="BrandBox_TextChanged" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="3" Margin="10,0,0,0" />
+                        </Grid>
+                    </Border>
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="178,34,3,18" CornerRadius="5" Height="38" Grid.Column="4" >
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="17*" />
+                                <ColumnDefinition Width="151*"/>
+                                <ColumnDefinition Width="93*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Color" MouseDown="Color_MouseDown" Text="Item Color" Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="4" Margin="10,0,0,0" />
+                            <TextBox x:Name="ColorBox" TextChanged="ColorBox_TextChanged" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="4" Margin="10,0,0,0" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </StackPanel>
+            <StackPanel Height="90"
+                            Orientation="Horizontal"
+                            RenderTransformOrigin="0.5,0.549">
+
+                <Grid Margin="7 9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="110" />
+                        <ColumnDefinition Width="0*" />
+                        <ColumnDefinition Width="316*"/>
+                        <ColumnDefinition Width="201*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="1" FontSize="16" Foreground="Black" 
+                                        Content="Material" Width="122" Height="30"
+                                        HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                        FontWeight="Bold" Grid.ColumnSpan="2" Margin="20,-20,0,0"/>
+
+                    <Label Grid.Column="3" FontSize="16" Foreground="Black" 
+                                        Content="Quantity" Width="131" Height="30"
+                                        HorizontalAlignment="Left"
+                                       VerticalAlignment="Top"
+                                        FontWeight="Bold" Margin="55,-20,0,0"/>
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="25,10,10,0" CornerRadius="5" Width="281" Height="38" Grid.Column="2" >
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="22*" />
+                                <ColumnDefinition Width="311*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Material" MouseDown="Material_MouseDown" Text="Item Material" Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="3" Margin="10,0,0,0" />
+                            <TextBox x:Name="MaterialBox" TextChanged="MaterialBox_TextChanged" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="3" Margin="10,0,0,0" />
+                        </Grid>
+                    </Border>
+
+                    <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="58,22,-156,12" CornerRadius="5" Height="38" Grid.Column="3" >
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition Width="22*" />
+                                <ColumnDefinition Width="311*"/>
+                                <ColumnDefinition Width="4*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock x:Name="Quantity" MouseDown="Quantity_MouseDown" Text="Item Quantity" Style="{StaticResource textHint}" Grid.Column="1" Grid.ColumnSpan="3" Margin="10,0,0,0" />
+                            <TextBox x:Name="QuantityBox" TextChanged="QuantityBox_TextChanged" Style="{StaticResource textBox}" Grid.Column="1" Grid.ColumnSpan="3" Margin="10,0,0,0" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </StackPanel>
+
+            <Button x:Name="postButton" Content="POST"
+                    Background="#425c5a"
+                    Foreground="WHITE"
+                    BorderThickness="0"
+                    FontSize="20"
+                    Height="45" Width="150"
+                    Margin="10 20 0 0" Click="Button_Click_1"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
